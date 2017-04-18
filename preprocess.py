@@ -11,8 +11,12 @@ class DataFeeder(object):
         self.generator = ImageDataGenerator(data_format='channels_first').flow_from_directory(self.load_dir, target_size=size, batch_size = batch_size)
 
     def fetch_data(self):
+        print('hoge')
         data, _ = next(self.generator)
-        return data/255.
+        if data.shape[0] == self.batch_size:
+            return data/255.
+        else:
+            return self.fetch_data()
 
     def save_images(self, arrays, names, concat, save_dir='save'):
         if not isinstance(names, list):

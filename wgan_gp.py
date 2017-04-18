@@ -46,6 +46,7 @@ class WganGP(object):
                         self.real_image: images}
                 self.sess.run(self.dis_updater, feed_in)
             self.sess.run(self.gen_updater, {self.z: np.random.normal(size=[self.batch_size, self.z_dim])})
+            print("epoch: {}, gen_loss: {}, dis_loss{}".format(i, *self.sess.run([self.gen_loss, self.dis_loss], feed_in)))
 
     def generate_image(self, z, names, concat, save_dir='save'):
         if not self.built:
