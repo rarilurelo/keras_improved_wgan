@@ -11,7 +11,6 @@ class DataFeeder(object):
         self.generator = ImageDataGenerator(data_format='channels_first').flow_from_directory(self.load_dir, target_size=size, batch_size = batch_size)
 
     def fetch_data(self):
-        print('hoge')
         data, _ = next(self.generator)
         if data.shape[0] == self.batch_size:
             return data/255.
@@ -34,3 +33,6 @@ class DataFeeder(object):
                 canvas.paste(image, (i*60, 0))
             canvas.save(os.path.join(save_dir, "{}.png".format(names[0])), quality=100)
 
+if __name__ == '__main__':
+    data_feeder = DataFeeder('./dir_test', batch_size=2)
+    data = data_feeder.fetch_data()

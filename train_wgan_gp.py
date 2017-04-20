@@ -22,7 +22,7 @@ data_feeder = DataFeeder(load_dir=load_dir, batch_size=batch_size, size=size)
 sess = tf.Session()
 wgan_gp = WganGP(net, data_feeder, sess, batch_size, size[0])
 
-wgan_gp.train(10)
+wgan_gp.train(100)
 
 wgan_gp.generate_image(np.random.normal(size=[10, 128]), 'tekitou', concat=True)
 

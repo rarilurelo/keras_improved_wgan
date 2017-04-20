@@ -1,5 +1,5 @@
 # Improved Training of Wasserstein GANs
-Code for reproducing experiments in [Improved Training of Wasserstein GANs](https://arxiv.org/abs/1704.00028)
+Code for reproducing the [Improved Training of Wasserstein GANs](https://arxiv.org/abs/1704.00028)
 
 # Requirement
 python 3.5.2
